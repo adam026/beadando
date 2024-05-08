@@ -8,4 +8,8 @@ class EgyagyasSzoba(Szoba):
         self.nev = nev
         self.tipus = tipus
         self.elhelyezkedes = elhelyezkedes
+        self.foglalt = []
+
+    def szoba_tipus(self):
+        return "Egyágyas szoba"
 

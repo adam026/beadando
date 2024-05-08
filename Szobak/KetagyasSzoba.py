@@ -8,3 +8,7 @@ class KetagyasSzoba(Szoba):
         self.nev = nev
         self.privatPF = privatPF
         self.kad = kad
+        self.foglalt = []
+
+    def szoba_tipus(self):
+        return "Kétágyas szoba"
