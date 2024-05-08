@@ -13,13 +13,16 @@ class Szalloda:
 
     def szobak_listazasa(self):
         for szoba in self.szobak:
-            print(f"Szobaszám: {szoba.szobaszam}, Ár: {szoba.ar}, Típus: {szoba.szoba_tipus()}")
+            if szoba.szoba_tipus() == "Egyágyas szoba":
+                szoba.adatok()
+            elif szoba.szoba_tipus() == "Kétágyas szoba":
+                szoba.adatok()
 
     def szoba_foglalasa(self, szobaszam, kezdo_datum, vegso_datum):
         for szoba in self.szobak:
             if szoba.szobaszam == int(szobaszam):
                 foglalas = Foglalas(szoba, kezdo_datum, vegso_datum)
-                if self.ellenoriz_foglalast(szoba, foglalas):
+                if foglalas.foglalas_ellenorzese(szoba):
                     print("Foglalás sikeres!")
                     return foglalas
                 else:
@@ -33,27 +36,8 @@ class Szalloda:
             for foglalas in szoba.foglalt:
                 foglalas.foglalas_megjelenitese()
 
-    @staticmethod
-    def foglalas_ar_szamitas(foglalas):
-        napok_szama = (foglalas.vegso_datum - foglalas.kezdo_datum).days
-        return napok_szama * foglalas.szoba.ar
-
-    @staticmethod
-    def foglalas_lemondasa(foglalas):
-        foglalas.szoba.foglalt.remove(foglalas)
-        print("Foglalás sikeresen törölve.")
-
-    @staticmethod
-    def ellenoriz_foglalast(szoba, foglalas):
-        for foglalt_foglalas in szoba.foglalt:
-            if (foglalas.kezdo_datum <= foglalt_foglalas.vegso_datum) and (foglalas.vegso_datum >= foglalt_foglalas.kezdo_datum):
-                return False
-        szoba.foglalt.append(foglalas)
-        return True
-
     def szoba_szamok(self):
         szoba_szamok = []
         for szoba in self.szobak:
             szoba_szamok.append(szoba.szobaszam)
         return szoba_szamok
-

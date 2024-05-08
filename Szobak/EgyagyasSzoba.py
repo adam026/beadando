@@ -13,3 +13,6 @@ class EgyagyasSzoba(Szoba):
     def szoba_tipus(self):
         return "Egyágyas szoba"
 
+    def adatok(self):
+        print(f"A szoba neve: {self.nev} | Szobaszám: {self.szobaszam} | Ár: {self.ar} | Méret: {self.meret} | Típus: {self.tipus} | Elhelyezkedés: {self.elhelyezkedes}")
+

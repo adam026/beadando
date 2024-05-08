@@ -12,3 +12,6 @@ class KetagyasSzoba(Szoba):
 
     def szoba_tipus(self):
         return "Kétágyas szoba"
+
+    def adatok(self):
+        print(f"A szoba neve: {self.nev} | Szobaszám: {self.szobaszam} | Ár: {self.ar} | Méret: {self.meret} | Privát pezsgőfürdő: {self.privatPF} | Kád: {self.kad}")
