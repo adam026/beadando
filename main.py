@@ -1,14 +1,19 @@
-from Szobak.EgyagyasSzoba import EgyagyasSzoba
-from Szobak.KetagyasSzoba import KetagyasSzoba
+from Adatkezelo import Adatkezelo
+from Foglalasok.FoglalasKezelo import FoglalasKezelo
+from Szalloda.Szalloda import Szalloda
+from UI import UI
 
-EgyagyasSzoba elsoEgyagyas = EgyagyasSzoba(25000, 1, 50, "ElsoEgyagyas", "Superior", "Észak-Nyugat")
-EgyagyasSzoba masodikEgyagyas = EgyagyasSzoba(30000, 2, 70, "MasodikEgyagyas", "Business", "Észak-Kelet")
-EgyagyasSzoba harmadikEgyagyas = EgyagyasSzoba(20000, 3, 40, "ElsoEgyagyas", "Standard", "Dél-Nyugat")
+wizzarding_world = Szalloda("Wizzarding World Hotel")
+middle_earth = Szalloda("Middle-earth Inn")
 
-KetagyasSzoba elsoKetagyas = KetagyasSzoba(35000, 4, 75, "ElsoKetagyas", False, False)
-KetagyasSzoba masodikKetagyas = KetagyasSzoba(40000, 5, 85, "MasodikKetagyas", False, True)
-KetagyasSzoba harmadikKetagyas = KetagyasSzoba(45000, 6, 90, "HarmadikKetagyas", True, True)
+Adatkezelo.feltolt(wizzarding_world)
+Adatkezelo.feltolt(middle_earth)
 
-Szalloda elsoSzalloda = Szalloda(elsoEgyagyas, elsoKetagyas)
-Szalloda masodikSzalloda = Szalloda(masodikEgyagyas, masodikKetagyas)
-Szalloda harmadikSzalloda = Szalloda(harmadikEgyagyas, harmadikKetagyas)
+szallodak = [wizzarding_world, middle_earth]
+
+UI.listaz_szallodak(szallodak)
+
+while True:
+    print("Válassza ki a szállodát, ahol szobát szeretne foglalni. Elérhető szállodák: \nA) Wizzarding World Hotel \nB) Middle-Earth Inn")
+foglalaskezelo = FoglalasKezelo(wizzarding_world)
+InterakcioKezelo.foglalas_menu(foglalaskezelo)

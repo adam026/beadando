@@ -1,4 +1,5 @@
 from datetime import datetime
+from Foglalasok.Foglalas import Foglalas
 
 
 class FoglalasKezelo:
@@ -24,7 +25,7 @@ class FoglalasKezelo:
                            (foglalas_kezdet <= foglalas.kezdet and foglalas_veg >= foglalas.veg):
                             print("A szoba ezen az időszakban már foglalt!")
                             return
-                self.foglalasok.append(Foglalás(szoba, foglalas_kezdet, foglalas_veg))
+                self.foglalasok.append(Foglalas(szoba, foglalas_kezdet, foglalas_veg))
                 print("A foglalás sikeresen rögzítve.")
                 return
         print("A megadott szobaszám nem létezik a szállodában.")
